@@ -37,7 +37,7 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 - **`2`** - turn left.
 - **`3`** - turn right.
 
-The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
+The task is episodic, and in order to solve the environment, the agent must get an average score of +13 over 100 consecutive episodes.
 
 ### Getting Started
 
@@ -66,21 +66,28 @@ The task is episodic, and in order to solve the environment, your agent must get
 5. Create a virtual environment for python    
     
     In a terminal type: 
+
     conda create -n drlnd python=3.6
+    
     source activate drlnd
+    
     To stop the virtual environment once you are done, type deactivate in the terminal.
+    
     Always start the drlnd virtual environment before starting the jupyter notebook or the python script,
     else you will get errors when running the code.
     
 
 
 6. Install dependencies
+    
     cd python
+    
     pip install .
 
 7. Start the notebook 
     
     cd ../
+    
     jupyter notebook
 
 8. Run the agent
