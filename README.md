@@ -16,11 +16,11 @@ The model is implemented in Python 3 using PyTorch.
 Using this model, we will train an agent to navigate, collect yellow bananas and avoid blue bananas in a large, square world represented in Unity ML.  
 
 
-#Goal
+# Goal
 
   Thus, the goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas.  
 
-#Rewards
+# Rewards
 
 A reward of +1 is provided for collecting a yellow banana.
 A reward of -1 is provided for collecting a blue banana.
