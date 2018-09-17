@@ -34,15 +34,15 @@ This equation makes sense with boundary conditions. If the state is terminal, th
 
 ![Q Modeling equation](Model.png)
 
-The state is the input and the output contains the Q value of every action possible.
+The state is the input to the network while the network output contains the Q value of every action possible.
 
-This model assumes that during a training episode the consequences of actions are on average correlated with the state in which these actions are performed. If this assumption is not realized we are trying to model a random walk.
+This model assumes that during a training episode the consequences of actions are on average correlated with the state from which these actions are performed. If this assumption is not valid we are trying to model a random walk.
 
 How do we train this network to approximate the optimal Q function? By trial and error. We will play applying our policy from a given state a number of times keeping note of the best reward. Then we will backpropagate the error gradient 
 
 (R - Q(s,a))
 
- of the best move in the network using the DQN equation above. Therefore by accumulating experience about the environment we will slowly approximate the best strategy to accumulate rewards in this environment. The best strategy will be ou policy.
+ of the best move in the network using the DQN equation above. Therefore by accumulating experiences about the environment we will slowly approximate the best strategy to accumulate rewards in this environment. In exploitation mode, the best strategy will be our policy.
 
 The algorithm has two parts: exploration and expoitation.
 In the exploration phase we will choose an action at random with odd ϵ or the best action from our current policy with odd (1−ϵ).
@@ -51,36 +51,45 @@ The random choice during exploration is called "off-policy". The expoitation pha
 
 
 ### Learning Algorithm:
-The Deep Q-Learning algorithm takes two steps:
+The Q-Learning algorithm takes two steps:
 1)	A sample step
 2)	A learn step
 
 
 To sample the environment a Multi Layer Perceptron is used to estimate the value actions based on environment observations.
 
-Experience replay is used to reduce the oscillations of the output function of the network and accelerate the learning process by emphasizing the samples most meaningful. 
+Experience replay is used to reduce the oscillations of the output function of the network and accelerate the learning process by emphasizing the most meaningful samples. 
 During the Learning step, a batch of past experiences is randomly sampled to train the agent.
 The randomness of this experiences selection, helps also the learning process by reducing correlation between input samples. 
 
 
 ### Hyperparameters:
 The parameters pertaining to the algorithms are
+
 •	Replay buffer size
+
 •	Minibatch size, 
+
 •	the discount factor  
+
 •	the learning rate
+
 •	update rate
+
 •	epsilon init value, final value, update value
 
 The parameters pertaining to the network are
+
 • Number of layers
+
 • Number of nodes in each layer.
+
 • The neural network optimizer: Adam optimizer and its parameters.
 
 
 ### Model Architecture:
 The model architecture is defined by 5 variables:
-State_size is input dimensions of the network
+State_size is the input dimensions of the network
 Action_size is the output dimensions of the network 
 Seed will initialize the weights of the network 
 fc1_units and fc2_units are the number of nodes in the hidden layers of the network
@@ -88,7 +97,7 @@ fc1_units and fc2_units are the number of nodes in the hidden layers of the netw
 
 The input layer has 37 nodes corresponding to the velocity, the first hidden layer has 40 and the second 40 nodes. The output layer has four nodes one for each action.
 Optimizing the number of nodes in the network leads to faster learning and better generalization.
-By setting the number of hidden layers to two and using dichotomy node sampling, I eventually found that 40 hidden nodes on two hidden layers gave better results than a larger network.
+By setting the number of hidden layers to two and using dichotomy node sampling, I eventually found that 40 hidden nodes on two hidden layers give better results than a larger network.
 
 ### Training:
 The training runs for 2000 episodes with 1000-time steps per episode using an epsilon-greedy policy. When the average of the 100 most recent scores reaches 13 the problem is considered solved and the algorithm stops. 
@@ -124,9 +133,9 @@ End Score: 19.0
 
 
 ### Ideas For Future Work:
-    There are may different ways this project could be improved. Although the problem to solve being simple it is not warranted that these
-    resource hungry refinement are necessary in this case.
-	 The main classical algorithms that could be tried include double DQN, dueling DQN and prioritized experience replay.
+    There are may different ways this project can be improved. However, the problem we have to solve is simple and it is not warranted that
+    resource hungry refinements are necessary in this case.
+	 The list of classical algorithms that could be tried includes double DQN, dueling DQN and prioritized experience replay.
 
 
 
