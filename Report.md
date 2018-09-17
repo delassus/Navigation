@@ -70,11 +70,11 @@ The parameters pertaining to the algorithms are
 
 •	Minibatch size, 
 
-•	the discount factor  
+•	Discount factor  
 
-•	the learning rate
+•	Learning rate
 
-•	update rate
+•	Update rate
 
 •	epsilon init value, final value, update value
 
