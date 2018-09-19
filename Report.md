@@ -66,23 +66,25 @@ The randomness of this experiences selection, helps also the learning process by
 ### Hyperparameters:
 The parameters pertaining to the algorithms are
 
-•	Replay buffer size
+•	Replay buffer size: int(1e5)
 
-•	Minibatch size, 
+•	Minibatch size: 64 
 
-•	Discount factor  
+•	Discount factor: 0.99  
 
-•	Learning rate
+•	Learning rate: 5e-4
 
-•	Update rate
+•	Update rate: 4
+
+•	Soft Update of Target Parameters (how often to update the network): 4
 
 •	epsilon init value, final value, update value
 
 The parameters pertaining to the network are
 
-• Number of layers
+• Number of layers and nodes: 1 input layer with 37 nodes, 2 hidden layers with 40 fully connected nodes, 1 output fully connected layer layer with 4 nodes.
 
-• Number of nodes in each layer.
+• Activation function: ReLu
 
 • The neural network optimizer: Adam optimizer and its parameters.
 

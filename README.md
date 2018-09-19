@@ -81,8 +81,9 @@ The task is episodic, and in order to solve the environment, the agent must get 
 6. Install dependencies
     
     cd python
+
+    python3 setup.py install -r requirements.txt
     
-    pip install .
 
 7. Start the notebook 
     
